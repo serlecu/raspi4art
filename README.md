@@ -18,10 +18,12 @@
 
 #### Run at startup:  
 1. Edit rc.local  
-´´´sudo nano /etc/rc.local´´´  
+```sudo nano /etc/rc.local```  
 Add commands to execute the program, preferably using absolute referencing of the file location (complete file path are preferred).  
 Be sure to leave the line exit 0 at the end or, if your program runs continuously, fork the process by adding an ampersand (“&”) to the end of the command.  
 Save the file and exit.
+ej.:  
+```sudo python /home/pi/program.py &```  
 2. Reboot.  
 **If you add a script into /etc/rc.local, it is added to the boot sequence. If your code gets stuck then the boot sequence cannot proceed.**
 
