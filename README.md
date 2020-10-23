@@ -1,14 +1,14 @@
 # Raspi 4 Art
 
-#### TErminal Shortcut
+#### Terminal Shortcut
 ```CTRL + ALT + T```
 
 ---
 
-#### General Congig Panel
+#### General Config Panel
 ```sudo raspi-config```
 
-#### Force Set Time&Date:  
+#### Force Set Time & Date:  
 ```sudo date -s "Mon Aug  12 20:14:11 UTC 2014"```
 
 ---
@@ -19,6 +19,22 @@
 #### Network Config:  
 ```sudo nano /etc/dhcpcd.conf```
 
+#### Wireless credentials:  
+```sudo nano /etc/wpa_supplicant/wpa_supplicant.conf```  
+For Eduroam add and complete at the end:  
+```
+network={
+        ssid="eduroam"
+        scan_ssid=1
+        key_mgmt=WPA-EAP
+        eap=PEAP
+        identity="<yourUser>"
+        password="<yourPass>"
+        phase1="peaplabel=0"
+        phase2="auth=MSCHAPV2"
+        disabled=1
+}
+```
 ---
 
 #### Remote Terminal:  
@@ -29,7 +45,7 @@
 
 ---
 
-#### Run App at startup 1:
+#### Run App at startup:
 1. Activate "Desktop Session Settings" in Pi-Menu:  
 Navigate "Main Menu": Preferences > Main Menu Editor.  
 Navigate "Main Menu Editor": Applications > Preferences > Desktop Session Settings.  
@@ -38,7 +54,7 @@ Accept.
 2. Create .desktop file:
 Open Terminal  
 ```nano ~/.local/share/applications/<AppName>.desktop```
-3. Craft .desktopo file:  
+3. Craft .desktopo file: 
 ```
 [Desktop Entry]
 Encoding=UTF-8
@@ -57,7 +73,7 @@ Navigate "Main Menu": Preferences > Desktop Session Settings.
 Check that your application is listed.
 
 
-#### Run App at startup 2:  
+#### Run Script at startup:  
 1. Edit rc.local  
 ```sudo nano /etc/rc.local```  
 Add commands to execute the program, preferably using absolute referencing of the file location (complete file path are preferred).  
@@ -69,9 +85,16 @@ ej.:
 ```sudo chmod +x /etc/rc.local```  
 3. Reboot.  
 **If you add a script into /etc/rc.local, it is added to the boot sequence. If your code gets stuck then the boot sequence cannot proceed.**
+**Take into consideration that this procedure will not likely work for launching desktop apps or precesses that need GUI or interaction.**
+
+---
 
 #### Shutdown:  
-```sudo shutdown -h <now/+mins/hh:mm>```
+```sudo shutdown now```  
+```sudo shutdown -h +<countdown mins>```  
+```sudo shutdown -h <scheduled time hh:mm>```
 
-#### Reboot:  
-```sudo shutdown -r <now/+mins/+hh:mm>```
+#### Reboot: 
+```sudo reboot```  
+```sudo shutdown -r +<countdown mins>```  
+```sudo shutdown -r <scheduled time hh:mm>```
