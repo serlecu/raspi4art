@@ -45,6 +45,20 @@ network={
 
 ---
 
+#### Run Script at startup:  
+1. Edit rc.local  
+```sudo nano /etc/rc.local```  
+Add commands to execute the program, preferably using absolute referencing of the file location (complete file path are preferred).  
+Be sure to leave the line exit 0 at the end or, if your program runs continuously, fork the process by adding an ampersand (“&”) to the end of the command.  
+Save the file and exit.
+ej.:  
+```sudo python /home/pi/program.py &```  
+2. Change permissions:  
+```sudo chmod +x /etc/rc.local```  
+3. Reboot.  
+**If you add a script into /etc/rc.local, it is added to the boot sequence. If your code gets stuck then the boot sequence cannot proceed.**
+**Take into consideration that this procedure will not likely work for launching desktop apps or processes that need GUI or interaction.**
+
 #### Run App at startup:
 1. Activate "Desktop Session Settings" in Pi-Menu:  
 Navigate "Main Menu": Preferences > Main Menu Editor.  
@@ -68,24 +82,11 @@ Icon=/path/to/icon
 Icon Path is not mandatory.  
 4. Save and close:
 ```Ctrl+X``` ```Y``` 
-5. Open "Desktop Session Settings":  
+5. Copy to "Desktop Session Settings'" folder
+```cp ~/.local/share/applications/<AppName>.desktop ~/.config/autostart/``` 
+6. Open "Desktop Session Settings":  
 Navigate "Main Menu": Preferences > Desktop Session Settings.  
 Check that your application is listed.
-
-
-#### Run Script at startup:  
-1. Edit rc.local  
-```sudo nano /etc/rc.local```  
-Add commands to execute the program, preferably using absolute referencing of the file location (complete file path are preferred).  
-Be sure to leave the line exit 0 at the end or, if your program runs continuously, fork the process by adding an ampersand (“&”) to the end of the command.  
-Save the file and exit.
-ej.:  
-```sudo python /home/pi/program.py &```  
-2. Change permissions:  
-```sudo chmod +x /etc/rc.local```  
-3. Reboot.  
-**If you add a script into /etc/rc.local, it is added to the boot sequence. If your code gets stuck then the boot sequence cannot proceed.**
-**Take into consideration that this procedure will not likely work for launching desktop apps or precesses that need GUI or interaction.**
 
 ---
 
