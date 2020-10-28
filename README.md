@@ -81,9 +81,9 @@ Icon=/path/to/icon
 ```  
 Icon Path is not mandatory.  
 4. Save and close:
-```Ctrl+X``` ```Y``` 
+```Ctrl+X``` ```Y```   
 5. Copy to "Desktop Session Settings'" folder
-```cp ~/.local/share/applications/<AppName>.desktop ~/.config/autostart/``` 
+```cp ~/.local/share/applications/<AppName>.desktop ~/.config/autostart/```   
 6. Open "Desktop Session Settings":  
 Navigate "Main Menu": Preferences > Desktop Session Settings.  
 Check that your application is listed.
