@@ -80,9 +80,9 @@ Name=Name of Application
 Icon=/path/to/icon
 ```  
 Icon Path is not mandatory.  
-4. Save and close:
+4. Save and close:  
 ```Ctrl+X``` ```Y```   
-5. Copy to "Desktop Session Settings'" folder
+5. Copy to "Desktop Session Settings'" folder:  
 ```cp ~/.local/share/applications/<AppName>.desktop ~/.config/autostart/```   
 6. Open "Desktop Session Settings":  
 Navigate "Main Menu": Preferences > Desktop Session Settings.  
